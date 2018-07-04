@@ -16,7 +16,7 @@ Avatar : Enonce 3 recettes selon la notation + vous demande quelle recette souha
  
 ## Versions
 Version 1.0 
-- Version Released
+
 
 
 
