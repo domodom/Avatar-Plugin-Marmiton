@@ -9,6 +9,7 @@ Vous pouvez parametrer la notation minimale de la recette dans le fichier marmit
 ## Exemple
 
 Vous : Avatar recherche sur marmiton des gougères.
+
 Avatar : Enonce 3 recettes selon la notation + vous demande quelle recette souhaitez vous écouter.
 
 <BR><BR>
