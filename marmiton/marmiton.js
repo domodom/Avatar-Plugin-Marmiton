@@ -17,20 +17,21 @@ exports.action = function (data, callback) {
                     Avatar.Speech.end(data.client);
                 });
             },
-            recette: function () { marmitonPageRequest(urlmarmiton, searchReceipt, valReceiptSearch, receipts, data, callback) }
+            recette: function () { marmitonPageRequest(urlmarmiton, searchReceipt, valReceiptSearch, receipts, data) }
         };
 
         info("Marmiton command:", data.action.command.yellow, "From:", data.client.yellow);
         tblCommand[data.action.command]();
 
-        callback();
+        
 
     }
+    callback();
 }
 
 
 // Define request for the marmiton home page.
-var marmitonPageRequest = function (urlmarmiton, searchReceipt, valReceiptSearch, receipts, data, callback) {
+var marmitonPageRequest = function (urlmarmiton, searchReceipt, valReceiptSearch, receipts, data) {
     var request = require('request'),
         cheerio = require('cheerio'),
         nomRecette = "",
@@ -63,18 +64,20 @@ var marmitonPageRequest = function (urlmarmiton, searchReceipt, valReceiptSearch
                 }
             });
 
-            Avatar.speak(parle, function () { poseQuestion(data, callback, nomRecette); });
+            Avatar.speak(parle, data.client, function () { poseQuestion(data, nomRecette); });
 
         } else {
-            console.log(error);
+            Avatar.speak("Une erreur s'est produite", data.client, function () {
+                Avatar.Speech.end(data.client);
+            });
         }
-        receiptPageRequest(receipts, callback, valReceiptSearch);
+        receiptPageRequest(receipts, valReceiptSearch);
     });
 }
 
 
 // Define request for the marmiton receipt page.
-var receiptPageRequest = function (receipts, callback, valReceiptSearch) {
+var receiptPageRequest = function (receipts, valReceiptSearch) {
     var request = require('request'),
         cheerio = require('cheerio'),
         async = require('async'),
@@ -117,15 +120,15 @@ var receiptPageRequest = function (receipts, callback, valReceiptSearch) {
                 fs.writeFileSync(fileJSON, JSON.stringify(receipts, null, 4), 'utf8');
             }
             else {
-                console.log(error);
+                Avatar.Speech.end(data.client);
             }
         });
 
     }, function (err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(null);
+        if (err) {        
+            Avatar.Speech.end(data.client);
+        } else {          
+            Avatar.Speech.end(data.client);
         }
 
     });
@@ -166,7 +169,7 @@ var readReceiptforJson = function (i, data) {
 }
 
 
-var poseQuestion = function (data, callback, nomRecette) {
+var poseQuestion = function (data, nomRecette) {
  
     var askme_question = Config.modules.marmiton.askme_question;
     var askme_answer = Config.modules.marmiton.askme_answer;
@@ -176,8 +179,7 @@ var poseQuestion = function (data, callback, nomRecette) {
 
         if (answer >= 1) {
             end(client);
-            readReceiptforJson(answer, data, function () {
-            });
+            readReceiptforJson(answer, data);
         }
         else if (answer = "stop") Avatar.speak("D'accord...", client, function () {
             end(client, true);
