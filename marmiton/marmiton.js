@@ -1,5 +1,4 @@
 exports.action = function (data, callback) {
-
     var urlmarmiton = "http://www.marmiton.org";
     var searchReceipt = "/recettes/recherche.aspx?type=all&aqt=";
     var receipts = [];
@@ -43,20 +42,24 @@ var marmitonPageRequest = function (urlmarmiton, searchReceipt, valReceiptSearch
             var $ = cheerio.load(html);
 
             $('a.recipe-card', '.recipe-results').each(function () {
+
                 var receipt = $(this), id, nameReceipt, url, notation, duration, receipt_url;
                 if (receipts.length + 1 <= Config.modules.marmiton.nb_recettes) {
-                    var id = receipts.length + 1;
-                    var nameReceipt = $(this).find('.recipe-card .recipe-card__title').text();
-                    var notation = $(this).find('.recipe-card .recipe-card__rating .recipe-card__rating__value').text();
-                    var duration = $(this).find('.recipe-card .recipe-card__duration .recipe-card__duration__value').text();
-                    var url = $(this).attr('href');
-                    var receipt_url = /* urlmarmiton*/ url;
-                    // Push the data into the search array.
-                    receipts.push({ "id": id, "nameReceipt": nameReceipt, "notation": notation, "duration": duration, "receipt_url": receipt_url });
-                    receipts.sort(sortArrayWithId);
-                    if (!notation) { notation = "indefinie" }; if (!duration) { duration = "indefinie" };
-                    parle += 'recette ' + id + ". " + nameReceipt + ' temps de praiparation ' + duration + ', note ' + notation + ". ";
-                    nomRecette += nameReceipt + ":" + id ;
+                        var id = receipts.length + 1;
+                        var nameReceipt = $(this).find('.recipe-card .recipe-card__title').text();
+                        var notation = $(this).find('.recipe-card .recipe-card__rating .recipe-card__rating__value').text();
+                        var duration = $(this).find('.recipe-card .recipe-card__duration .recipe-card__duration__value').text();
+                        var url = $(this).attr('href');
+                        var receipt_url = /* urlmarmiton*/ url;
+
+                        // Push the data into the search array.
+                    if ((notation > 0) && (notation >= Config.modules.marmiton.notation)) {
+                        receipts.push({ "id": id, "nameReceipt": nameReceipt, "notation": notation, "duration": duration, "receipt_url": receipt_url });
+                        receipts.sort(sortArrayWithId);
+
+                        parle += 'recette ' + id + ". " + nameReceipt + ' temps de praiparation ' + duration + ', note ' + notation + ". ";
+                        nomRecette += nameReceipt + ":" + id;
+                    }
                 }
             });
 
@@ -136,7 +139,7 @@ function sortArrayWithId(a, b) {
     return 0;
 }
 
-var readReceiptforJson = function (i) {
+var readReceiptforJson = function (i, data) {
     var fs = require('fs');
     var fileJSON = __dirname + '/marmiton.json';
 
@@ -155,8 +158,8 @@ var readReceiptforJson = function (i) {
         preparation = jsonObj[i].receipt_preparation;
 
         parle = name + " pour " + quantity + " " + quantity_title + ", temps de préparation " + time_prep + ", temps de cuisson " + time_baking + ", liste des ingrédient " + ingredient + " praiparation " + preparation;
-        Avatar.speak(parle, client, function () {
-            Avatar.Speech.end(client);
+        Avatar.speak(parle, data.client, function () {
+            Avatar.Speech.end(data.client);
         });
     });
 
@@ -165,37 +168,25 @@ var readReceiptforJson = function (i) {
 
 var poseQuestion = function (data, callback, nomRecette) {
  
-    askme_question = Config.modules.marmiton.askme_question;
-    askme_answer = Config.modules.marmiton.askme_answer;
-    client = data.client;
+    var askme_question = Config.modules.marmiton.askme_question;
+    var askme_answer = Config.modules.marmiton.askme_answer;
+    client = data.client,
+
     Avatar.askme(askme_question, client, askme_answer, 0, function (answer, end) {
 
-        if ((answer) && (answer != 0)) {
+        if (answer >= 1) {
             end(client);
-            readReceiptforJson(answer, function () {
+            readReceiptforJson(answer, data, function () {
             });
         }
-        if (answer = "stop") Avatar.speak("D'accord...", data.client, function () {
-            end(client);
+        else if (answer = "stop") Avatar.speak("D'accord...", client, function () {
+            end(client, true);
         });
-        if (answer > Config.modules.marmiton.nb_recettes) {
-            Avatar.speak("Je ne peux pas énoncer cette recette.", data.client, function () {
-                end(client);
+        else if (answer > Config.modules.marmiton.nb_recettes) {
+            Avatar.speak("Je ne peux pas énoncer cette recette.", client, function () {
+                end(client, true);
             });
         }
-
-        //if (answer = "stop") {
-        //    Avatar.speak('d\'accord', client, function () {
-        //        end(client, true);
-        //    });
-        //} else if (answer => 1 || answer <= Config.modules.marmiton.nb_recettes) {
-        //    end(client);
-        //    readReceiptforJson(answer, function () {});
-        //} else {
-        //        Avatar.speak("Je n'ai pas trouver cette recette.", data.client, function () {
-        //        end(client);
-        //    });
-        //}
     });
 }
 
