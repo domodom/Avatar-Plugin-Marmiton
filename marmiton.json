@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "nameReceipt": "Gougères simple et rapide",
+        "notation": " 4",
+        "duration": "35 min",
+        "receipt_url": "https://www.marmiton.org/recettes/recette_gougeres-simple-et-rapide_313709.aspx",
+        "receipt_budget": "bon marché",
+        "receipt_quantity_title": "Gougères",
+        "receipt_quantity": "50",
+        "receipt_time_prep": "10 min",
+        "receipt_time_baking": "25 min",
+        "receipt_ingredient": "25 cl d'eau 120 g de beurre 4 oeuf 140 g de farine 100 g de gruyère râpé 1/2 cuillère à café de sel ",
+        "receipt_preparation": [
+            "",
+            "Réunissez l'eau, le beurre et le sel dans une casserole et porter à ébullition. ",
+            "Quand le beurre est complètement fondu, retirez du feu et ajoutez la farine en pluie en remuant vivement.",
+            "Remettez 1 à 2 min à feu doux sans cesser de remuer jusqu'à ce que la pâte forme une masse lisse et sèche qui se décolle des parois.",
+            "Retirez du feu puis incorporez les oeufs 1 à 1 en attendant que chacun soit bien absorbé avant d'en rajouter 1 autre. ",
+            "Ajouter le fromage.",
+            "Préchauffer le four à 180°C (thermostat 6). Recouvrez une plaque de papier sulfurisé. Utilisez 2 cuillères ou une poche à douille et déposer des petite boules de pâtes suffisamment espacées.",
+            "Enfourner jusqu’à ce que les choux soient bien dorés soit 20/25 min."
+        ]
+    },
+    {
+        "id": 2,
+        "nameReceipt": "Gougères au fromage",
+        "notation": " 5",
+        "duration": "45 min",
+        "receipt_url": "https://www.marmiton.org/recettes/recette_gougeres-au-fromage_20095.aspx",
+        "receipt_budget": "bon marché",
+        "receipt_quantity_title": "personnes",
+        "receipt_quantity": "6",
+        "receipt_time_prep": "20 min",
+        "receipt_time_baking": "25 min",
+        "receipt_ingredient": "4 oeuf + 1 jaune (pas obligé)150 g de gruyère râpé 150 g de farine tamisée80 g de beurre + 15 g pour la plaque1 pincée de muscade râpéeSel Poivre ",
+        "receipt_preparation": [
+            "",
+            "Préchauffez le four à 200°C (th 6-7).",
+            "Dans une casserole, portez 25 cl d'eau à ébullition, avec le beurre coupé en morceaux + 1 cuillère à café de sel.",
+            "Hors du feu, ajoutez la farine d'un coup. ",
+            "Mélangez vivement, et faites dessécher pendant 1 min sur feu doux. ",
+            "Laissez tiédir quelques instants, et incorporez les oeufs un par un en mélangeant bien.",
+            "Ajoutez le gruyère râpé, la muscade, le sel et le poivre.",
+            "Déposez cette pâte à l'aide de 2 cuillères à café, en petits tas séparés, sur une plaque beurrée. ",
+            "Vous pouvez dorer les petites gougères avec un jaune d'oeuf, à l'aide d'un pinceau.",
+            "Enfournez 25 min en surveillant. ",
+            "C'est prêt"
+        ]
+    },
+    {
+        "id": 3,
+        "nameReceipt": "Gougères au gruyère faciles",
+        "notation": " 5",
+        "duration": "50 min",
+        "receipt_url": "https://www.marmiton.org/recettes/recette_gougeres-au-gruyere-faciles_20298.aspx",
+        "receipt_budget": "bon marché",
+        "receipt_quantity_title": "personnes",
+        "receipt_quantity": "4",
+        "receipt_time_prep": "30 min",
+        "receipt_time_baking": "20 min",
+        "receipt_ingredient": "85 g d'eau 93 g de farine 75 g de beurre 3 oeuf Sel 150 g de gruyère râpé ",
+        "receipt_preparation": [
+            "",
+            "Préchauffer le four à 180°C (thermostat 6).",
+            "Amener l'eau et le beurre à ébullition puis jeter la farine dedans en 1 fois.",
+            "Remuer énergiquement à l'aide d'une cuillère en bois jusqu'à ce que la pâte se détache des parois.",
+            "Incorporer les oeufs un à un puis le gruyère râpé.",
+            "Disposer la pâte dans une poche à douille et déposer des petits ronds de pâte sur une plaque à four recouverte de papier sulfurisé.",
+            "Enfourner pour 20 à 30 minutes de cuisson.",
+            "Les gougères doivent être bien gonflées et dorées."
+        ]
+    }
+]

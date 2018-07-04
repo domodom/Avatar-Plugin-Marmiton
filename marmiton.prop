@@ -1,0 +1,28 @@
+{
+	"modules" : {
+    "marmiton": {
+      "description": "récupère des recette via marmiton.org",
+      "exemple": "fraisier sur marmiton || recherche fraisier sur marmiton|| tu peux rechercher sur marmiton la recette du fraisier",
+      "nlpPosition": 8,
+      "nb_recettes": 3,
+      "notation":  4,
+      "rules": {
+      "recette": [ "marmiton" ]
+      },
+      "askme_question" : "Quelle recette veux tu que j'énonce ?| Quelle recette veux tu déguster ?| Quelle recette te ferai plaisir ?| Quelle recette souhaites tu manger ?| Quelle recette veux tu préparer ?",
+      "askme_answer": {
+        "la première": 1,
+        "la une": 1,
+        "recette une": 1,
+        "la deuxième": 2,
+        "la deux": 2,
+        "la seconde": 2,
+        "recette deux": 2,
+        "la troisième": 3,
+        "la trois": 3,
+        "recette trois": 3,
+        "aucune": "stop"
+      }
+    }
+	}
+}
