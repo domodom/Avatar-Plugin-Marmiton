@@ -1,27 +1,37 @@
 {
 	"modules" : {
     "marmiton": {
-      "description": "r�cup�re des recette via marmiton.org",
-      "exemple": "fraisier sur marmiton || recherche fraisier sur marmiton|| tu peux rechercher sur marmiton la recette du fraisier",
+      "description": "récupère des recette via marmiton.org",
+      "exemple": "fraisier sur marmiton || recherche fraisier sur marmiton || tu peux rechercher sur marmiton la recette du fraisier",
       "nlpPosition": 8,
       "nb_recettes": 3,
-      "notation":  4,
-      "rules": {
-      "recette": [ "marmiton" ]
-      },
-      "askme_question" : "Quelle recette veux tu que j'�nonce ?| Quelle recette veux tu d�guster ?| Quelle recette te ferai plaisir ?| Quelle recette souhaites tu manger ?| Quelle recette veux tu pr�parer ?",
-      "askme_answer": {
-        "la premi�re": 1,
+      "notation": 4,
+      "rules": { "recette": [ "marmiton" ] },
+      "askme_question": "Quelle recette voulez vous que j'énonce ?| Quelle recette vous ferez plaisir ?| Quelle recette souhaitez vous manger ?| Quelle recette voulez vous préparer ?",
+      "etape_question": "Dites: répétes les ingrédients, ou répétes la préparation ou dites terminer. ",
+      "num_recette": {
+        "la première": 1,
         "la une": 1,
         "recette une": 1,
-        "la deuxi�me": 2,
+        "la deuxième": 2,
+        "deux": 2,
         "la deux": 2,
-        "la seconde": 2,
+        "seconde": 2,
         "recette deux": 2,
-        "la troisi�me": 3,
+        "la troisième": 3,
         "la trois": 3,
         "recette trois": 3,
-        "aucune": "stop"
+        "aucune": "close"
+      },
+
+      "etapes": {
+        "liste des ingrédients": "list_ingredient",
+        "répétes les ingrédients": "list_ingredient",
+        "répétes la liste des ingredients": "list_ingredient",
+        "liste les étapes": "preparation",
+        "répétes préparation": "preparation",
+        "terminer": "cancel"
+
       }
     }
 	}
