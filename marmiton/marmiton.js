@@ -332,9 +332,8 @@ var ask_nb_quantity = function (info_recette, client) {
                 let r = /\d+/g;
                 let ing;
                 nb_quantity = answer.match(r);
-                if (debug) info('Recette pour ' + nb_quantity + " " + info_recette.quantity_title);
                 let ing_nb = info_recette.ingredient.replace(/\d+/g, el => el > 1 ? (el / info_recette.quantity) * nb_quantity : el);
-                if (debug) info('Ingrédients pour ' + nb_quantity + info_recette.quantity_title + " : " + ing_nb);
+                if (debug) info('Ingrédients pour ' + nb_quantity + ' ' + info_recette.quantity_title + " : " + ing_nb);
                 Avatar.speak(info_recette.name + ' pour ' + nb_quantity + info_recette.quantity_title + ". " + ing_nb, client, function () {
                     Avatar.Speech.end(client);
                     ask_etapes_recette(info_recette.name + ". " + Config.modules.marmiton.tts_etape_recette, nb_quantity, info_recette, client);
