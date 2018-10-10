@@ -17,7 +17,8 @@
       "tts_etape_recette_prep": "Tu peux dire étape suivante, étape précédente,retour, terminer.",
       "ask_recette": {
                     "qu'est ce que je peux dire" : "sommaire",
-                    "répète": "again",
+                    "répéte": "again",
+                    "répéter": "again",
         			"encore": "again",
         			"suivant" : "next",
         			"suivante": "next",
