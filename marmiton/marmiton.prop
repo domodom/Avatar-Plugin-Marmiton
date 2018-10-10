@@ -2,37 +2,72 @@
 	"modules" : {
     "marmiton": {
       "description": "récupère des recette via marmiton.org",
-      "exemple": "fraisier sur marmiton || recherche fraisier sur marmiton || tu peux rechercher sur marmiton la recette du fraisier",
+      "exemple": "Cherche sur marmiton fraisier || tu peux rechercher sur marmiton la recette du fraisier",
+      "version": "1.2",
+      "debug": true,
       "nlpPosition": 8,
       "nb_recettes": 3,
       "notation": 4,
-      "rules": { "recette": [ "marmiton" ] },
+      "rules": {
+             "recette": [ "marmiton" ]
+             },
       "askme_question": "Quelle recette voulez vous que j'énonce ?| Quelle recette vous ferez plaisir ?| Quelle recette souhaitez vous manger ?| Quelle recette voulez vous préparer ?",
-      "etape_question": "Dites: répétes les ingrédients, ou répétes la préparation ou dites terminer. ",
-      "num_recette": {
-        "la première": 1,
-        "la une": 1,
-        "recette une": 1,
-        "la deuxième": 2,
-        "deux": 2,
-        "la deux": 2,
-        "seconde": 2,
-        "recette deux": 2,
-        "la troisième": 3,
-        "la trois": 3,
-        "recette trois": 3,
-        "aucune": "close"
+      "tts_recette": "Tu peux dire recette suivante, recette pécédente, répètes, donne moi la recette ou terminer.",
+      "tts_etape_recette": "Tu peux dire liste des ingrédients, étapes de préparation, retour aux recettes, terminer.",
+      "tts_etape_recette_prep": "Tu peux dire étape suivante, étape précédente,retour, terminer.",
+      "ask_recette": {
+                    "qu'est ce que je peux dire" : "sommaire",
+                    "répète": "again",
+        			"encore": "again",
+        			"suivant" : "next",
+        			"suivante": "next",
+        			"passe au suivant" : "next",
+        			"passe à la suivante" : "next",
+        			"recette suivante" : "next",
+        			"next" : "next",
+        			"précédente" : "previous",
+        			"recette précédente" : "previous",
+        			"valider": "select",
+        			"donne la recette": "select",
+        			"donne moi la recette": "select",
+        			"lis la recette": "select",
+        			"ok": "select",
+        			"terminé" : "done",
+        			"quitter" : "done",
+        			"terminer" : "done"
       },
 
-      "etapes": {
-        "liste des ingrédients": "list_ingredient",
-        "répétes les ingrédients": "list_ingredient",
-        "répétes la liste des ingredients": "list_ingredient",
+      "liste_etapes": {
+        "qu'est ce que je peux dire" : "sommaire",
+        "recette":"back_recette",
+        "retour aux recettes": "back_recette",
+        "préparation": "preparation",
         "liste les étapes": "preparation",
         "répétes préparation": "preparation",
-        "terminer": "cancel"
+        "ingrédient": "list_ingredient",
+        "liste des ingrédients": "list_ingredient",
+        "répétes ingrédients": "list_ingredient",
+        "répétes la liste des ingredients": "list_ingredient",
+        "quitter": "done",
+        "terminé" : "done",
+        "terminer": "done"
 
-      }
-    }
+      },
+      "liste_etapes_prep": {
+              "qu'est ce que je peux dire" : "sommaire",
+              "recette": "back_recette",
+              "retour": "back_recette",
+              "retour aux recettes": "back_recette",
+              "étape suivante": "next",
+              "repète": "repeat",
+              "repète l'étape": "repeat",
+              "suivant": "next",
+              "étape précédente": "previous",
+              "précédent": "previous",
+              "quitter" : "done",
+              "terminé" : "done",
+              "terminer": "done"
+            }
+        }
 	}
 }

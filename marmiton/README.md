@@ -1,10 +1,4 @@
-
-![Avatar-IA](https://raw.githubusercontent.com/Spikharpax/Avatar-Serveur/master/logo/Avatar.jpg)
-
 # Avatar-Plugin-Marmiton
-
-![Marmiton](http://www.userlogos.org/files/logos/demainlespoulpes/Marmiton.png)
-
 
 Ce plugin est un add-on pour le framework [Avatar](https://github.com/Spikharpax/Avatar-Serveur).
 

@@ -9,7 +9,7 @@ var _ = require('underscore');
 // Ignoré une fois dans TERM
 var TERM = ['marmiton', 'recherche', 'cherche', 'la', 'qu\'est-ce', 'le', 'les', 'des', 'de', 'du', 'sur', 'ce', 'que', 'qui', 'recette', 'c\'est', 'est', 'sur', 's\'il', 'te', 'plaît', 'plait'];
 // Toujours ignoré dans NOTERM
-var NOTERM = ['la', 'ce', 'que', 'qu\'est-ce', 'qui', 'recette', 'savoir', 'pour', 'c\'est', 'est', 's\'il', 'te', 'plaît', 'plait'];
+var NOTERM = ['à', 'la', 'ce', 'que', 'qu\'est-ce', 'qui', 'recette', 'savoir', 'pour', 'c\'est', 'est', 's\'il', 'te', 'plaît', 'plait'];
 // Non ignoré si un term est déjà pris, ex: la défintion de la revue du cinéma
 var IGNORETERM = ['aux', 'du', 'de', 'des'];
 
@@ -104,6 +104,5 @@ String.prototype.sansAccent = function () {
     for (var i = 0; i < accent.length; i++) {
         str = str.replace(accent[i], noaccent[i]);
     }
-
     return str;
-}
+};
