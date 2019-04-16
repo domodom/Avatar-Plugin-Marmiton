@@ -1,0 +1,3 @@
+Demandez à marmiton vos recettes !
+
+- Permet d'avoir une lecture des ingrédients et des étapes pour vos recettes.
